@@ -106,7 +106,7 @@ Strip ANSI escape codes (`\x1b\[[0-9;]*[A-Za-z]`) before pattern matching. The c
 
 ## Known Limitations (v1)
 
-- Assumes one tmux window, one pane per session. Multi-pane layouts not handled.
+- If tmux session has multiple panes, only attaches to the first pane (pane 0). Multi-pane layouts not rendered.
 - Scrollback buffer unbounded — may need limits if memory becomes an issue.
 - Output filter is heuristic-based; edge cases in Claude Code output format changes may require filter updates.
 - No landscape, no iPad.
@@ -117,4 +117,4 @@ Strip ANSI escape codes (`\x1b\[[0-9;]*[A-Za-z]`) before pattern matching. The c
 - iPad/Mac Catalyst
 - SSH key generation in-app
 - File browsing or editing
-- Notification on Claude completion
+- ~~Notification on Claude completion~~ — included: iOS Background App Refresh periodically SSH to Mac Studio, check tmux sessions for idle `❯` prompt (Claude waiting for input), send local notification when detected
