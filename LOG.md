@@ -18,3 +18,4 @@
 - 11:32 [project-next] 完成「项目列表页」, 设置 NEXT=终端视图
 - 11:37 [project-next] 完成「终端视图」, 设置 NEXT=输出过滤状态机
 - 11:39 [project-next] 完成「输出过滤状态机」, 设置 NEXT=SSH Key 认证
+- 11:42 [project-next] 完成「SSH Key 认证」, 设置 NEXT=用户输入接线

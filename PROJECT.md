@@ -31,8 +31,8 @@
 - [x] 项目列表页（ProjectListView: 目录列表 + session 状态）(2026-03-18)
 - [x] 终端视图（SwiftTerm UIViewRepresentable + SessionView）(2026-03-18)
 - [x] 输出过滤状态机（compact/raw 双缓冲切换）(2026-03-18)
-- [>] SSH Key 认证 + Keychain 存储 + 首次设置页
-- [ ] 用户输入接线 + PTY 尺寸协商
+- [x] SSH Key 认证 + Keychain 存储 + 首次设置页 (2026-03-18)
+- [>] 用户输入接线 + PTY 尺寸协商
 - [ ] 语音输入（Speech framework, 中英自动识别）
 - [ ] 手势键盘（底部上滑呼出，特殊键 + 快捷命令）
 - [ ] 断线重连（3 次自动重试 + 手动重连按钮）
