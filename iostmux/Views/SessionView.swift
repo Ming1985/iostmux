@@ -10,6 +10,7 @@ struct SessionView: View {
     @State private var isConnecting = true
     @State private var connectionError: String?
     @State private var filter = OutputFilter()
+    @State private var showKeyboard = false
     @State private var compactLines: [String] = []
     @Environment(\.dismiss) private var dismiss
 
@@ -63,6 +64,25 @@ struct SessionView: View {
                     }
                     .opacity(isCompactMode ? 1 : 0)
                 }
+            }
+        }
+        .gesture(
+            DragGesture(minimumDistance: 50)
+                .onEnded { value in
+                    if value.translation.height < -50 {
+                        withAnimation { showKeyboard = true }
+                    } else if value.translation.height > 50 {
+                        withAnimation { showKeyboard = false }
+                    }
+                }
+        )
+        .overlay(alignment: .bottom) {
+            if showKeyboard {
+                GestureKeyboardView(
+                    onKey: { text in Task { try? await ssh.send(text) } },
+                    onBytes: { bytes in Task { try? await ssh.sendBytes(bytes) } }
+                )
+                .transition(.move(edge: .bottom))
             }
         }
         .overlay(alignment: .bottomTrailing) {
