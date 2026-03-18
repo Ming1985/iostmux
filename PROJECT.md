@@ -23,8 +23,12 @@
   - [x] 添加 Citadel SPM 依赖（SwiftSH 不支持 SPM，改回 Citadel）
   - [x] 创建 Config.swift 硬编码 SSH 参数
   - [x] 验证 build 通过
-- [>] SSH 服务层（SSHService: 命令执行 + 交互 shell）
-- [ ] 项目列表页（ProjectListView: 目录列表 + session 状态）
+- [x] SSH 服务层（SSHService: 命令执行 + 交互 shell）(2026-03-18)
+  - [x] 创建 Project 模型
+  - [x] 创建 SSHService（Citadel: connect + executeCommand + fetchProjects）
+  - [x] 添加交互式 shell 方法（withTTY + send + close）
+  - [x] 验证 build 通过（Swift 5 mode，Swift 6 concurrency 后续优化）
+- [>] 项目列表页（ProjectListView: 目录列表 + session 状态）
 - [ ] 终端视图（SwiftTerm UIViewRepresentable + SessionView）
 - [ ] 输出过滤状态机（compact/raw 双缓冲切换）
 - [ ] SSH Key 认证 + Keychain 存储 + 首次设置页

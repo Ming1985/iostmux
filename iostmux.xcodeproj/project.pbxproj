@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		0FE1720E3711517A2A1AAEEF /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = D8FA61509CBB4908CC50BD80 /* SwiftTerm */; };
 		14DA06C8FA91F4BBF9DA2A86 /* iostmuxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF434C2F6CD0BBC78A7C91E /* iostmuxApp.swift */; };
+		672D58AE40B4F7B32418E882 /* SSHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0307F39102CE1DD54926BC19 /* SSHService.swift */; };
 		86FF869B67413876C6B884E0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A45B17ADE5DF57B1737520F /* Config.swift */; };
 		A1AB801121DB19A1FD3D7237 /* Citadel in Frameworks */ = {isa = PBXBuildFile; productRef = E647007AA6AE3220C9353F2B /* Citadel */; };
+		BAC1C78E6E19CF4E02ECA020 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E418B111A04E0A671611950 /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0307F39102CE1DD54926BC19 /* SSHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHService.swift; sourceTree = "<group>"; };
 		1BF434C2F6CD0BBC78A7C91E /* iostmuxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iostmuxApp.swift; sourceTree = "<group>"; };
 		6A60B57A7CCDD5B32599D382 /* iostmux.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = iostmux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A45B17ADE5DF57B1737520F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8E418B111A04E0A671611950 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582AB35B62BE4238B24803D8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0307F39102CE1DD54926BC19 /* SSHService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A6B65C67A1C5D2270A4E70CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E418B111A04E0A671611950 /* Project.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AE447F85FFCCDBACA420E0D8 = {
 			isa = PBXGroup;
 			children = (
@@ -45,6 +65,8 @@
 			children = (
 				8A45B17ADE5DF57B1737520F /* Config.swift */,
 				1BF434C2F6CD0BBC78A7C91E /* iostmuxApp.swift */,
+				A6B65C67A1C5D2270A4E70CA /* Models */,
+				582AB35B62BE4238B24803D8 /* Services */,
 			);
 			path = iostmux;
 			sourceTree = "<group>";
@@ -118,6 +140,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				86FF869B67413876C6B884E0 /* Config.swift in Sources */,
+				BAC1C78E6E19CF4E02ECA020 /* Project.swift in Sources */,
+				672D58AE40B4F7B32418E882 /* SSHService.swift in Sources */,
 				14DA06C8FA91F4BBF9DA2A86 /* iostmuxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +211,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -267,7 +292,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 6.0;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

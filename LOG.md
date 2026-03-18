@@ -11,3 +11,7 @@
 - 10:43 [project-next] 完成「Xcode 项目搭建 + 依赖集成」, 设置 NEXT=SSH 服务层
   - xcodegen 生成项目，SwiftTerm + Citadel 依赖编译通过
   - [决策] SSH 库从 SwiftSH 改回 Citadel（SwiftSH 不支持 SPM）
+- 11:30 [project-next] 完成「SSH 服务层」, 设置 NEXT=项目列表页
+  - SSHService: connect + executeCommand + fetchProjects + withTTY shell
+  - Citadel withTTY 替代 withPTY（PseudoTerminalRequest init 为 internal）
+  - Swift 6 strict concurrency 降级为 Swift 5（v1 快速原型）
