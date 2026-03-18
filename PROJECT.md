@@ -28,8 +28,8 @@
   - [x] 创建 SSHService（Citadel: connect + executeCommand + fetchProjects）
   - [x] 添加交互式 shell 方法（withTTY + send + close）
   - [x] 验证 build 通过（Swift 5 mode，Swift 6 concurrency 后续优化）
-- [>] 项目列表页（ProjectListView: 目录列表 + session 状态）
-- [ ] 终端视图（SwiftTerm UIViewRepresentable + SessionView）
+- [x] 项目列表页（ProjectListView: 目录列表 + session 状态）(2026-03-18)
+- [>] 终端视图（SwiftTerm UIViewRepresentable + SessionView）
 - [ ] 输出过滤状态机（compact/raw 双缓冲切换）
 - [ ] SSH Key 认证 + Keychain 存储 + 首次设置页
 - [ ] 用户输入接线 + PTY 尺寸协商
@@ -52,3 +52,5 @@
 - 实施计划: docs/superpowers/plans/2026-03-18-iostmux-implementation.md
 - [决策] 2026-03-18: SSH 库选型反转 — 原方案: SwiftSH (libssh2) → 新方案: Citadel (SwiftNIO SSH)（原因: SwiftSH 无 Package.swift 不支持 SPM。Citadel 交互 shell 限制后续用底层 SwiftNIO SSH channel 解决）
 - [adhoc] 修改了 /project-next 技能（Step 2a-2: 自动检查 superpowers plan）和新建了 /auto-gtd 技能
+- [auto-gtd] 轮次 1: 「Xcode 项目搭建 + 依赖集成」 ✅ (2026-03-18 10:43)
+- [auto-gtd] 轮次 2: 「SSH 服务层」 ✅ (2026-03-18 11:30)
