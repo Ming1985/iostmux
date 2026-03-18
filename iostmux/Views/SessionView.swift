@@ -65,6 +65,14 @@ struct SessionView: View {
                 }
             }
         }
+        .overlay(alignment: .bottomTrailing) {
+            if !isConnecting && connectionError == nil {
+                VoiceInputButton { text in
+                    Task { try? await ssh.send(text + "\n") }
+                }
+                .padding()
+            }
+        }
         .navigationTitle(projectName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
