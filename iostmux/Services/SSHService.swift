@@ -6,7 +6,11 @@ import NIO
 @MainActor
 class SSHService: ObservableObject {
     private var client: SSHClient?
+    enum ConnectionState {
+        case connected, disconnected, reconnecting(attempt: Int)
+    }
     @Published var isConnected = false
+    @Published var connectionState: ConnectionState = .disconnected
 
     // Shell state — set during openShell, used by send/sendBytes
     nonisolated(unsafe) private var _ttyWriter: TTYStdinWriter?
@@ -32,6 +36,25 @@ class SSHService: ObservableObject {
             reconnect: .never
         )
         isConnected = true
+        connectionState = .connected
+    }
+
+    /// Reconnect with retry logic
+    func reconnect(project: String, onData: @escaping @Sendable (Data) -> Void) async {
+        for attempt in 1...3 {
+            connectionState = .reconnecting(attempt: attempt)
+            try? await Task.sleep(for: .seconds(2))
+            do {
+                try await connect()
+                openShell(project: project, onData: onData)
+                connectionState = .connected
+                return
+            } catch {
+                if attempt == 3 {
+                    connectionState = .disconnected
+                }
+            }
+        }
     }
 
     /// Execute a single command, return output as string

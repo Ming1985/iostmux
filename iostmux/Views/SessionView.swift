@@ -66,6 +66,34 @@ struct SessionView: View {
                 }
             }
         }
+        .overlay(alignment: .top) {
+            switch ssh.connectionState {
+            case .disconnected where !isConnecting:
+                HStack {
+                    Text("Connection lost")
+                    Button("Reconnect") {
+                        Task {
+                            await ssh.reconnect(project: projectName) { data in
+                                DispatchQueue.main.async {
+                                    let bytes = [UInt8](data)
+                                    terminalView?.feed(byteArray: ArraySlice(bytes))
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(8)
+                .background(.red.opacity(0.9), in: Capsule())
+                .padding(.top, 8)
+            case .reconnecting(let attempt):
+                Text("Reconnecting (\(attempt)/3)...")
+                    .padding(8)
+                    .background(.orange.opacity(0.9), in: Capsule())
+                    .padding(.top, 8)
+            default:
+                EmptyView()
+            }
+        }
         .gesture(
             DragGesture(minimumDistance: 50)
                 .onEnded { value in
