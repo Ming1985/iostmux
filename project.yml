@@ -9,7 +9,8 @@ settings:
     GENERATE_INFOPLIST_FILE: YES
     INFOPLIST_KEY_UILaunchScreen_Generation: YES
     INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
-    SWIFT_VERSION: "6.0"
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
 packages:
   SwiftTerm:
     url: https://github.com/migueldeicaza/SwiftTerm
