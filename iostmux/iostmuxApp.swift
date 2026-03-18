@@ -4,7 +4,7 @@ import SwiftUI
 struct iostmuxApp: App {
     var body: some Scene {
         WindowGroup {
-            Text("iostmux")
+            ProjectListView()
         }
     }
 }
